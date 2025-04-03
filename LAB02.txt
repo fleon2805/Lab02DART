@@ -1,0 +1,41 @@
+class Persona {
+  String? nombre;
+  String? apellidos;
+  int? edad;
+
+  Persona.conNombreYApellidos(this.nombre, this.apellidos);
+
+  Persona.conEdad(this.edad)
+      : nombre = '',
+        apellidos = '';
+
+  
+  @override
+  String toString() {
+    return 'Nombre: $nombre $apellidos, Edad: $edad';
+  }
+
+  String esMayorDeEdad() {
+    if (edad! >= 18) {
+      return '$nombre $apellidos es mayor de edad.';
+    } else {
+      return '$nombre $apellidos es menor de edad.';
+    }
+  }
+}
+
+void main() {
+  
+  var objeto1 = Persona.conNombreYApellidos('Juan', 'Pérez');
+  objeto1.edad = 25; 
+
+  var objeto2 = Persona.conEdad(15);
+  objeto2.nombre = 'Ana';  
+  objeto2.apellidos = 'González'; 
+
+  print(objeto1.toString());
+  print(objeto1.esMayorDeEdad());
+
+  print(objeto2.toString());
+  print(objeto2.esMayorDeEdad());
+}
